@@ -62,4 +62,8 @@ public interface MonitorFacade extends Monitor, Peers, Patterns, Emails {
     void removeEmail(String email);
     @Override
     void removeEmails(Set<String> emails);
+
+    void registerLoginCodePrompt(MonitorFacade.LoginCodePrompt loginCodePrompt);
+
+    interface LoginCodePrompt extends ai.quantumsense.tgmonitor.monitor.LoginCodePrompt {}
 }

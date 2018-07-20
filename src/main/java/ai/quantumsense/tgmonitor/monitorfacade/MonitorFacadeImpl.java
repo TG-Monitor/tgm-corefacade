@@ -154,11 +154,9 @@ public class MonitorFacadeImpl implements MonitorFacade {
         emailsLocator.getService().removeEmails(emails);
     }
 
+    @Override
     public void registerLoginCodePrompt(LoginCodePrompt loginCodePrompt) {
         loginCodePromptLocator.registerService(loginCodePrompt);
     }
 
-    public interface LoginCodePrompt extends ai.quantumsense.tgmonitor.monitor.LoginCodePrompt {
-
-    }
 }
