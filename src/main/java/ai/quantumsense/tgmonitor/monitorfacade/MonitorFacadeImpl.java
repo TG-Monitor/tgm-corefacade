@@ -3,6 +3,7 @@ package ai.quantumsense.tgmonitor.monitorfacade;
 import ai.quantumsense.tgmonitor.entities.Emails;
 import ai.quantumsense.tgmonitor.entities.Patterns;
 import ai.quantumsense.tgmonitor.entities.Peers;
+import ai.quantumsense.tgmonitor.monitor.LoginCodePrompt;
 import ai.quantumsense.tgmonitor.monitor.Monitor;
 import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
 
@@ -14,15 +15,18 @@ public class MonitorFacadeImpl implements MonitorFacade {
     private ServiceLocator<Peers> peersLocator;
     private ServiceLocator<Patterns> patternsLocator;
     private ServiceLocator<Emails> emailsLocator;
+    private ServiceLocator<LoginCodePrompt> loginCodePromptLocator;
 
     public MonitorFacadeImpl(ServiceLocator<Monitor> monitorLocator,
                              ServiceLocator<Peers> peersLocator,
                              ServiceLocator<Patterns> patternsLocator,
-                             ServiceLocator<Emails> emailsLocator) {
+                             ServiceLocator<Emails> emailsLocator,
+                             ServiceLocator<LoginCodePrompt> loginCodePromptLocator) {
         this.monitorLocator = monitorLocator;
         this.peersLocator = peersLocator;
         this.patternsLocator = patternsLocator;
         this.emailsLocator = emailsLocator;
+        this.loginCodePromptLocator = loginCodePromptLocator;
     }
 
     @Override
@@ -148,5 +152,13 @@ public class MonitorFacadeImpl implements MonitorFacade {
     @Override
     public void removeEmails(Set<String> emails) {
         emailsLocator.getService().removeEmails(emails);
+    }
+
+    public void registerLoginCodePrompt(LoginCodePrompt loginCodePrompt) {
+        loginCodePromptLocator.registerService(loginCodePrompt);
+    }
+
+    public interface LoginCodePrompt extends ai.quantumsense.tgmonitor.monitor.LoginCodePrompt {
+
     }
 }
