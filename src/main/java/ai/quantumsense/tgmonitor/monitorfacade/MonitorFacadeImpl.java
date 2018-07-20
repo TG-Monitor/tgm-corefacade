@@ -155,7 +155,7 @@ public class MonitorFacadeImpl implements MonitorFacade {
     }
 
     @Override
-    public void registerLoginCodePrompt(LoginCodePrompt loginCodePrompt) {
+    public void registerLoginCodePrompt(LoginCodePromptFacade loginCodePrompt) {
         loginCodePromptLocator.registerService(loginCodePrompt);
     }
 
