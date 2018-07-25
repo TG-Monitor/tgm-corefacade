@@ -7,6 +7,8 @@ import ai.quantumsense.tgmonitor.monitor.LoginCodePrompt;
 import ai.quantumsense.tgmonitor.monitor.Monitor;
 import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class MonitorFacadeImpl implements MonitorFacade {
@@ -70,8 +72,8 @@ public class MonitorFacadeImpl implements MonitorFacade {
     }
 
     @Override
-    public void setPeers(Set<String> peers) {
-        peersLocator.getService().setPeers(peers);
+    public void setPeers(List<String> peers) {
+        peersLocator.getService().setPeers(new HashSet<>(peers));
     }
 
     @Override
