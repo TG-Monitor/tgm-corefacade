@@ -72,7 +72,7 @@ public class MonitorFacadeImpl implements MonitorFacade {
     }
 
     @Override
-    public void setPeers(List<String> peers) {
+    public void setPeers(Set<String> peers) {
         peersLocator.getService().setPeers(new HashSet<>(peers));
     }
 
