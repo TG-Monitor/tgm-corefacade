@@ -6,10 +6,9 @@ import ai.quantumsense.tgmonitor.entities.Peers;
 import ai.quantumsense.tgmonitor.monitor.LoginCodePrompt;
 import ai.quantumsense.tgmonitor.monitor.Monitor;
 
-import java.util.List;
 import java.util.Set;
 
-public interface MonitorFacade extends Monitor, Patterns, Emails {
+public interface MonitorFacade extends Monitor, Peers, Patterns, Emails {
 
     @Override
     void login(String phoneNumber);
@@ -26,17 +25,17 @@ public interface MonitorFacade extends Monitor, Patterns, Emails {
     @Override
     String getPhoneNumber();
 
-    //@Override
+    @Override
     Set<String> getPeers();
-    //@Override
-    void setPeers(List<String> peers);
-    //@Override
+    @Override
+    void setPeers(Set<String> peers);
+    @Override
     void addPeer(String peer);
-    //@Override
+    @Override
     void addPeers(Set<String> peers);
-    //@Override
+    @Override
     void removePeer(String peer);
-    //@Override
+    @Override
     void removePeers(Set<String> peers);
 
     @Override
