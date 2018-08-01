@@ -3,12 +3,11 @@ package ai.quantumsense.tgmonitor.monitorfacade;
 import ai.quantumsense.tgmonitor.entities.Emails;
 import ai.quantumsense.tgmonitor.entities.Patterns;
 import ai.quantumsense.tgmonitor.entities.Peers;
-import ai.quantumsense.tgmonitor.monitor.LoginCodePrompt;
+import ai.quantumsense.tgmonitor.logincodeprompt.LoginCodePrompt;
 import ai.quantumsense.tgmonitor.monitor.Monitor;
 import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class MonitorFacadeImpl implements MonitorFacade {
@@ -17,23 +16,20 @@ public class MonitorFacadeImpl implements MonitorFacade {
     private ServiceLocator<Peers> peersLocator;
     private ServiceLocator<Patterns> patternsLocator;
     private ServiceLocator<Emails> emailsLocator;
-    private ServiceLocator<LoginCodePrompt> loginCodePromptLocator;
 
     public MonitorFacadeImpl(ServiceLocator<Monitor> monitorLocator,
                              ServiceLocator<Peers> peersLocator,
                              ServiceLocator<Patterns> patternsLocator,
-                             ServiceLocator<Emails> emailsLocator,
-                             ServiceLocator<LoginCodePrompt> loginCodePromptLocator) {
+                             ServiceLocator<Emails> emailsLocator) {
         this.monitorLocator = monitorLocator;
         this.peersLocator = peersLocator;
         this.patternsLocator = patternsLocator;
         this.emailsLocator = emailsLocator;
-        this.loginCodePromptLocator = loginCodePromptLocator;
     }
 
     @Override
-    public void login(String phoneNumber) {
-        monitorLocator.getService().login(phoneNumber);
+    public void login(String phoneNumber, LoginCodePrompt loginCodePrompt) {
+        monitorLocator.getService().login(phoneNumber, loginCodePrompt);
     }
 
     @Override
@@ -155,10 +151,4 @@ public class MonitorFacadeImpl implements MonitorFacade {
     public void removeEmails(Set<String> emails) {
         emailsLocator.getService().removeEmails(emails);
     }
-
-    @Override
-    public void registerLoginCodePrompt(LoginCodePromptFacade loginCodePrompt) {
-        loginCodePromptLocator.registerService(loginCodePrompt);
-    }
-
 }

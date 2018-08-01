@@ -3,7 +3,7 @@ package ai.quantumsense.tgmonitor.monitorfacade;
 import ai.quantumsense.tgmonitor.entities.Emails;
 import ai.quantumsense.tgmonitor.entities.Patterns;
 import ai.quantumsense.tgmonitor.entities.Peers;
-import ai.quantumsense.tgmonitor.monitor.LoginCodePrompt;
+import ai.quantumsense.tgmonitor.logincodeprompt.LoginCodePrompt;
 import ai.quantumsense.tgmonitor.monitor.Monitor;
 
 import java.util.Set;
@@ -11,7 +11,7 @@ import java.util.Set;
 public interface MonitorFacade extends Monitor, Peers, Patterns, Emails {
 
     @Override
-    void login(String phoneNumber);
+    void login(String phoneNumber, LoginCodePrompt loginCodePrompt);
     @Override
     void logout();
     @Override
@@ -63,8 +63,4 @@ public interface MonitorFacade extends Monitor, Peers, Patterns, Emails {
     void removeEmail(String email);
     @Override
     void removeEmails(Set<String> emails);
-
-    void registerLoginCodePrompt(LoginCodePromptFacade loginCodePrompt);
-
-    interface LoginCodePromptFacade extends LoginCodePrompt {}
 }
