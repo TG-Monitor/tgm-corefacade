@@ -1,4 +1,4 @@
-package ai.quantumsense.tgmonitor.monitorfacade;
+package ai.quantumsense.tgmonitor.corefacade;
 
 import ai.quantumsense.tgmonitor.entities.Emails;
 import ai.quantumsense.tgmonitor.entities.Patterns;
@@ -8,7 +8,7 @@ import ai.quantumsense.tgmonitor.monitor.Monitor;
 
 import java.util.Set;
 
-public interface MonitorFacade extends Monitor, Peers, Patterns, Emails {
+public interface CoreFacade extends Monitor, Peers, Patterns, Emails {
 
     @Override
     void login(String phoneNumber, LoginCodePrompt loginCodePrompt);

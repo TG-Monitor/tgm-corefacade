@@ -1,4 +1,4 @@
-package ai.quantumsense.tgmonitor.monitorfacade;
+package ai.quantumsense.tgmonitor.corefacade;
 
 import ai.quantumsense.tgmonitor.entities.Emails;
 import ai.quantumsense.tgmonitor.entities.Patterns;
@@ -10,17 +10,17 @@ import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MonitorFacadeImpl implements MonitorFacade {
+public class CoreFacadeImpl implements CoreFacade {
 
     private ServiceLocator<Monitor> monitorLocator;
     private ServiceLocator<Peers> peersLocator;
     private ServiceLocator<Patterns> patternsLocator;
     private ServiceLocator<Emails> emailsLocator;
 
-    public MonitorFacadeImpl(ServiceLocator<Monitor> monitorLocator,
-                             ServiceLocator<Peers> peersLocator,
-                             ServiceLocator<Patterns> patternsLocator,
-                             ServiceLocator<Emails> emailsLocator) {
+    public CoreFacadeImpl(ServiceLocator<Monitor> monitorLocator,
+                          ServiceLocator<Peers> peersLocator,
+                          ServiceLocator<Patterns> patternsLocator,
+                          ServiceLocator<Emails> emailsLocator) {
         this.monitorLocator = monitorLocator;
         this.peersLocator = peersLocator;
         this.patternsLocator = patternsLocator;
