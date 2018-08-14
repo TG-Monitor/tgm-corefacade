@@ -119,7 +119,7 @@ public class CoreFacadeImpl implements CoreFacade {
 
     @Override
     public void removePatterns(Set<String> patterns) {
-        patternsLocator.getService().addPatterns(patterns);
+        patternsLocator.getService().removePatterns(patterns);
     }
 
     @Override
