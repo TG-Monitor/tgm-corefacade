@@ -41,6 +41,7 @@ public class CoreFacadeMockLogin implements CoreFacade {
     @Override
     public void logout() {
         isLoggedIn = false;
+        if (isRunning()) stop();
     }
 
     private void sleep(int ms) {
