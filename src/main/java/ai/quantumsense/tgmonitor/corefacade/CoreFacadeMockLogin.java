@@ -44,17 +44,17 @@ public class CoreFacadeMockLogin implements CoreFacade {
         if (isRunning()) stop();
     }
 
+    @Override
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
+
     private void sleep(int ms) {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public boolean isLoggedIn() {
-        return false;
     }
 
     @Override
